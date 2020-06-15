@@ -587,3 +587,16 @@ if (!function_exists('collection')) {
         }
     }
 }
+
+if (!function_exists('return_json')) {
+    /**
+     * 返回json
+     * @param array $resultSet
+     * @return \think\model\Collection|\think\Collection
+     */
+    function return_json($data=[],$code=200,$msg='成功')
+    {
+        $return_data = ['code'=>$code,'msg'=>$msg,'data'=>$data];
+        return json_encode($return_data,JSON_UNESCAPED_UNICODE);
+    }
+}
