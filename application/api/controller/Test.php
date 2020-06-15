@@ -25,14 +25,15 @@ class Test extends Controller
 
     public function _initialize()
     {
+        echo 123;die;
         $this->name = '属性';
         parent::_initialize();
-//        $rules = [
-//            'name'  => 'require|max:25',
-//            'age'   => 'number|between:1,120',
-//        ];
-//        $validate = new Validate($rules);
-//        dump($validate);die;
+        $rules = [
+            'name'  => 'require|max:25',
+            'age'   => 'number|between:1,120',
+        ];
+        $validate = new Validate($rules);
+        dump($validate);die;
 
     }
 
