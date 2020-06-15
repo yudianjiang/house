@@ -53,5 +53,15 @@ class Navigation extends Controller
         return return_json($result);
     }
 
+    /**
+     * 测试 带model
+     * @return mixed
+     */
+    public function bbb()
+    {
+        $result = $this->NavServer->getModel();
+        return return_json($result);
+    }
+
 
 }
