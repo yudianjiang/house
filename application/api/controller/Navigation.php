@@ -1,14 +1,9 @@
 <?php
-/**
- * @file  index
- * @since  2020/6/15 11:19
- * @author  yudj
- * @version  1.1
- *
- */
+
 namespace app\api\controller;
 
-use app\api\server\TestServer;
+use app\api\server\NavServer; 
+
 
 use think\Controller;
 
@@ -16,14 +11,15 @@ use think\Controller;
  * Class index
  * @package app\api\controller
  */
-class Index extends Controller
+class Navigation extends Controller
 {
-    protected $name;
+    
+    
 
     public function _initialize()
     {
         parent::_initialize();
-        $this->name = '属性';
+        
 
     }
 
@@ -33,7 +29,7 @@ class Index extends Controller
      */
     public function index()
     {
-        $result = TestServer::getInstance()->index();
+        $result = NavServer::getInstance()->index();
         return return_json($result,100,'msg');
     }
 
@@ -43,7 +39,7 @@ class Index extends Controller
      */
     public function test()
     {
-        $result = TestServer::getInstance()->getModel();
+        $result = $this->NavServer->getModel();
         return return_json($result);
     }
 
