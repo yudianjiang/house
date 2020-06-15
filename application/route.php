@@ -8,6 +8,11 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
+use think\Route;
+
+/** api */
+Route::rule('test','api/index/test');//测试
+/** api */
 
 return [
     '__pattern__' => [
@@ -17,5 +22,8 @@ return [
         ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
         ':name' => ['index/hello', ['method' => 'post']],
     ],
+
+
+
 
 ];

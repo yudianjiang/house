@@ -18,10 +18,12 @@ use think\Controller;
  */
 class Index extends Controller
 {
+    protected $name;
 
     public function _initialize()
     {
         parent::_initialize();
+        $this->name = '属性';
 
     }
 
