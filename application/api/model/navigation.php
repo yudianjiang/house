@@ -26,7 +26,7 @@ class navigation
      */
     public function index()
     {
-        $data = Db::('navigation')->field('id,name,url,sort,status')->select();
+        $data = Db::name('navigation')->field('id,name,url,sort,status')->select();
         return $data;
     }
 
@@ -36,7 +36,7 @@ class navigation
      */
     public function add($data = [])
     {
-        $res = Db::('navigation')->insert($data);
+        $res = Db::name('navigation')->insert($data);
         return $res;
     }
 
@@ -44,9 +44,9 @@ class navigation
      * 修改导航
      * @return array
      */
-    public function add($data = [])
+    public function edit($data = [])
     {
-        $res = Db::('navigation')->where('id',$data['id'])->update($data);
+        $res = Db::name('navigation')->where('id',$data['id'])->update($data);
         return $res;
     }
 
@@ -54,9 +54,9 @@ class navigation
      * 删除导航
      * @return array
      */
-    public function add($data = [])
+    public function del($data = [])
     {
-        $res = Db::('navigation')->where('id',$id)->del();
+        $res = Db::name('navigation')->where('id',$id)->del();
         return $res;
     }
 
