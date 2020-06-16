@@ -39,7 +39,7 @@ class Navigation extends Controller
      */
     public function test()
     {
-        $result = $this->NavServer->getModel();
+        $result = NavServer::getInstance()->getModel();
         return return_json($result);
     }
 
