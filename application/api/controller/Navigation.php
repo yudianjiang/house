@@ -23,22 +23,33 @@ class Navigation extends Controller
     }
 
     /**
-     * 
+     * 导航首页
      * @return mixed
      */
     public function index()
     {
         $result = NavigationServer::getInstance()->index();
+        return return_json($result,100,'导航数据');
+    }
+
+
+    /**
+     * 添加导航
+     * @return mixed
+     */
+    public function add()
+    {
+        $result = NavigationServer::getInstance()->add();
         return return_json($result,100,'msg');
     }
 
     /**
-     * 测试 带model
+     * 修改导航
      * @return mixed
      */
-    public function test()
+    public function edit()
     {
-        $result = NavigationServer::getInstance()->getModel();
+        $result = NavigationServer::getInstance()->edit();
         return return_json($result);
     }
 

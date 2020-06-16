@@ -26,7 +26,7 @@ class navigation
      */
     public function index()
     {
-        $data = Db::name('navigation')->field('id,name,url,sort,status')->select();
+        $data = Db::name('navigation')->field('id,name,sort,status')->select();
         return $data;
     }
 
