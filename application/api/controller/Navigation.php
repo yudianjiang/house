@@ -2,7 +2,7 @@
 
 namespace app\api\controller;
 
-use app\api\server\NavServer; 
+use app\api\server\NavigationServer; 
 
 
 use think\Controller;
@@ -20,66 +20,37 @@ class Navigation extends Controller
     {
         parent::_initialize();
         
-
     }
 
     /**
-     * 测试
+     * 导航首页
      * @return mixed
      */
     public function index()
     {
-        $result = NavServer::getInstance()->index();
+        $result = NavigationServer::getInstance()->index();
+        return return_json($result,100,'导航数据');
+    }
+
+
+    /**
+     * 添加导航
+     * @return mixed
+     */
+    public function add()
+    {
+        $result = NavigationServer::getInstance()->add();
         return return_json($result,100,'msg');
     }
 
     /**
-     * 测试 带model
+     * 修改导航
      * @return mixed
      */
-    public function test()
+    public function edit()
     {
-        $result = $this->NavServer->getModel();
+        $result = NavigationServer::getInstance()->edit();
         return return_json($result);
     }
 
-     /**
-     * 测试 带model
-     * @return mixed
-     */
-    public function aaa()
-    {
-        $result = $this->NavServer->getModel();
-        return return_json($result);
-    }
-
-    /**
-     * 测试 带model
-     * @return mixed
-     */
-    public function bbb()
-    {
-        $result = $this->NavServer->getModel();
-        return return_json($result);
-    }
-
-    /**
-     * 测试 带model
-     * @return mixed
-     */
-    public function ccc()
-    {
-        $result = $this->NavServer->getModel();
-        return return_json($result);
-    }
-    
-    /**
-     * 测试 带model
-     * @return mixed
-     */
-    public function ddd()
-    {
-        $result = $this->NavServer->getModel();
-        return return_json($result);
-    }
 }

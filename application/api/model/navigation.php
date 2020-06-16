@@ -4,6 +4,7 @@ namespace app\api\model;
 /**
  * Class test
  */
+use think\Db;
 class navigation
 {
     //保存全局实例
@@ -20,13 +21,43 @@ class navigation
     }
 
     /**
-     * 这是备注
+     * 导航栏数据
      * @return array
      */
     public function index()
     {
-        $data = [];
+        $data = Db::name('navigation')->field('id,name,sort,status')->select();
         return $data;
+    }
+
+    /**
+     * 添加导航
+     * @return array
+     */
+    public function add($data = [])
+    {
+        $res = Db::name('navigation')->insert($data);
+        return $res;
+    }
+
+    /**
+     * 修改导航
+     * @return array
+     */
+    public function edit($data = [])
+    {
+        $res = Db::name('navigation')->where('id',$data['id'])->update($data);
+        return $res;
+    }
+
+    /**
+     * 删除导航
+     * @return array
+     */
+    public function del($data = [])
+    {
+        $res = Db::name('navigation')->where('id',$id)->del();
+        return $res;
     }
 
 }

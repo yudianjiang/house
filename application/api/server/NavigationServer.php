@@ -3,7 +3,7 @@
 namespace app\api\server;
 
 
-use app\api\model\test;
+use app\api\model\navigation;
 
 class NavigationServer
 {
@@ -23,22 +23,22 @@ class NavigationServer
 
 
     /**
-     * 这是备注
+     * 导航数据
      * @return array
      */
     public function index()
     {
-        $data = [];
+        $data = navigation::getInstance()->index();
         return $data;
     }
 
     /**
-     * 这是备注
+     * 添加导航
      * @return mixed
      */
-    public function getModel()
+    public function add($data = [])
     {
-        $data = test::getInstance()->index();
+        $data = navigation::getInstance()->add($data);
         return $data;
     }
 }
