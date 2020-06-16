@@ -13,7 +13,7 @@ use think\Route;
 /** api */
 Route::rule('/','index/index/index');//首页
 Route::rule('test','api/test/test');//测试
-Route::rule('Navigation','api/Navigation/test');//测试
+Route::rule('/Navigation','api/Navigation/test');//测试
 /** api */
 
 return [
