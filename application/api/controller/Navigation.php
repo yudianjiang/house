@@ -2,7 +2,7 @@
 
 namespace app\api\controller;
 
-use app\api\server\NavServer; 
+use app\api\server\NavigationServer; 
 
 
 use think\Controller;
@@ -29,7 +29,7 @@ class Navigation extends Controller
      */
     public function index()
     {
-        $result = NavServer::getInstance()->index();
+        $result = NavigationServer::getInstance()->index();
         return return_json($result,100,'msg');
     }
 
@@ -39,7 +39,7 @@ class Navigation extends Controller
      */
     public function test()
     {
-        $result = NavServer::getInstance()->getModel();
+        $result = NavigationServer::getInstance()->getModel();
         return return_json($result);
     }
 
