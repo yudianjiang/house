@@ -20,7 +20,6 @@ class Navigation extends Controller
     {
         parent::_initialize();
         
-
     }
 
     /**
