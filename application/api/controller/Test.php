@@ -12,6 +12,7 @@ namespace app\api\controller;
 
 
 use app\api\server\TestServer;
+use app\common\Dict;
 use think\Controller;
 use think\Validate;
 
@@ -19,21 +20,13 @@ use think\Validate;
  * Class Test
  * @package app\api\controller
  */
-class Test extends Controller
+class Test extends baseController
 {
     protected $name;
 
-    public function _initialize()
+    public function __construct()
     {
-        echo 123;die;
-        $this->name = '属性';
-        parent::_initialize();
-        $rules = [
-            'name'  => 'require|max:25',
-            'age'   => 'number|between:1,120',
-        ];
-        $validate = new Validate($rules);
-        dump($validate);die;
+        $this->goCheck($this->_validate);
 
     }
 
@@ -56,5 +49,26 @@ class Test extends Controller
         $result = TestServer::getInstance()->getModel();
         return return_json($result);
     }
+
+    /**
+     * 验证规则
+     * @var \array[][]
+     */
+    protected $_validate = array(
+        # 获取验证码
+        'test'   => array(
+            Dict::V_request_method  => 'get',
+            Dict::V_field_name => array(
+                'name' => array(
+                    Dict::V_require => true,
+                    Dict::V_validate_rule  => Dict::Number_Preg,
+                ),
+                'age'  => array(
+                    Dict::V_require => true
+                )
+            )
+        ),
+    );
+
 
 }

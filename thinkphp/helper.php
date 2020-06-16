@@ -590,13 +590,21 @@ if (!function_exists('collection')) {
 
 if (!function_exists('return_json')) {
     /**
-     * 返回json
-     * @param array $resultSet
-     * @return \think\model\Collection|\think\Collection
+     * json 返回
+     * @param array $data 数据
+     * @param string $error_code 错误码
+     * @param string $error_msg 错误信息
      */
-    function return_json($data=[],$code=200,$msg='成功')
+    function return_json($data = [], $error_code = '0', $error_msg = '')
     {
-        $return_data = ['code'=>$code,'msg'=>$msg,'data'=>$data];
-        return json_encode($return_data,JSON_UNESCAPED_UNICODE);
+        $return_data = array(
+            'data' => is_array($data) ? array_change_key_case($data) : [],
+            'code' => $error_code,
+            'msg'  => empty($error_msg) ? \app\common\ErrorCode::getMsg($error_code) : $error_msg
+        );
+        $response = Response::create($return_data, 'json');
+        $response->send();
+//        Log::record(json_encode($return_data, JSON_NUMERIC_CHECK), 'response');
+        exit();
     }
 }
