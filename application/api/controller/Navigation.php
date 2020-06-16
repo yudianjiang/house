@@ -23,7 +23,7 @@ class Navigation extends Controller
     }
 
     /**
-     * 测试
+     * 
      * @return mixed
      */
     public function index()
